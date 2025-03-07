@@ -1,0 +1,25 @@
+{
+  "name": "backend_tp_rhum",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mansouri",
+  "license": "ISC",
+  "description": "TP_note",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medMansouri25/TP_note_Backend_MMA.git"
+  },
+  "keywords": [
+    "Mansouri25.."
+  ],
+  "bugs": {
+    "url": "https://github.com/medMansouri25/TP_note_Backend_MMA/issues"
+  },
+  "homepage": "https://github.com/medMansouri25/TP_note_Backend_MMA#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
