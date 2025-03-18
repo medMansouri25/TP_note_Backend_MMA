@@ -1,31 +1,37 @@
-let recipes = [];
+const Recipe = require("../models/Recipe");
 
-exports.addRecipe = (req, res) => {
-    const { name, rhum, ingredients, instructions, isPublic } = req.body;
+exports.addRecipe = async (req, res) => {
+    try {
+        const { userId, name, rhum, ingredients, instructions, isPublic } = req.body;
 
-    if (!name || !rhum || !ingredients.length || !instructions) {
-        return res.status(400).json({ message: "Tous les champs sont obligatoires" });
+        const newRecipe = new Recipe({ userId, name, rhum, ingredients, instructions, isPublic });
+        await newRecipe.save();
+
+        res.status(201).json({ message: "Recette ajoutée avec succès", recipe: newRecipe });
+    } catch (error) {
+        res.status(500).json({ message: "Erreur serveur", error });
     }
-
-    const newRecipe = { id: recipes.length + 1, name, rhum, ingredients, instructions, isPublic };
-    recipes.push(newRecipe);
-
-    res.status(201).json({ message: "Recette ajoutée", recipe: newRecipe });
 };
 
-exports.getRecipes = (req, res) => {
-    const { page = 1, limit = 5 } = req.query;
-    const startIndex = (page - 1) * limit;
-    const endIndex = startIndex + parseInt(limit);
+exports.getRecipes = async (req, res) => {
+    try {
+        const { page = 1, limit = 10 } = req.query;
+        const recipes = await Recipe.find()
+            .skip((page - 1) * limit)
+            .limit(parseInt(limit));
 
-    res.json({
-        total: recipes.length,
-        page: parseInt(page),
-        limit: parseInt(limit),
-        recipes: recipes.slice(startIndex, endIndex)
-    });
+        res.json({ total: await Recipe.countDocuments(), page: parseInt(page), recipes });
+    } catch (error) {
+        res.status(500).json({ message: "Erreur serveur", error });
+    }
 };
 
-exports.getPublicRecipes = (req, res) => {
-    res.json({ results: recipes.filter(r => r.isPublic) });
+exports.getPublicRecipes = async (req, res) => {
+    try {
+        const recipes = await Recipe.find({ isPublic: true });
+        res.json({ results: recipes });
+    } catch (error) {
+        res.status(500).json({ message: "Erreur serveur", error });
+    }
 };
+

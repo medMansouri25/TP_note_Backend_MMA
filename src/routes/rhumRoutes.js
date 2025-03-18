@@ -1,10 +1,13 @@
 const express = require("express");
-const { addRhum, getRhums, searchRhum } = require("../controllers/rhumController");
+const { getRhums, searchRhum, getAllRhums } = require("../controllers/rhumController");
+
+const auth = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-router.post("/add", addRhum);  // Assure-toi que cette ligne est bien là
-router.get("/list", getRhums);
-router.get("/search", searchRhum);
+router.get("/search",auth, searchRhum);
+router.get("/list", auth, getRhums);
+router.get("/all",auth, getAllRhums);
+
 
 module.exports = router;

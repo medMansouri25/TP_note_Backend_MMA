@@ -3,34 +3,40 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+
+// Import des routes
 const userRoutes = require("./routes/userRoutes");
+const ingredientRoutes = require("./routes/ingredientRoutes");
+const recipeRoutes = require("./routes/recipeRoutes");
+const rhumRoutes = require("./routes/rhumRoutes");
 
 const app = express();
 const PORT = 3003;
 
+// Middleware
 app.use(express.json());
 app.use(cors());
 
-//mongoose.connect(process.env.MONGO_URI)
-//.then(() => console.log("MongoDB connecté"))
-//.catch((err) => console.error("Erreur MongoDB:", err));
+// Connexion à MongoDB
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => console.log("MongoDB connecté"))
+.catch(err => console.error("Erreur MongoDB:", err));
 
-app.use("/api/users", userRoutes);
-
+// Route test pour vérifier si le serveur fonctionne
 app.post('/test', (req, res) => {
-  res.json({ message: "La route POST fonctionne !" });
+    res.json({ message: "La route POST fonctionne !" });
 });
 
-
-app.listen(PORT, () => {
-  console.log(`Serveur lancé sur http://localhost:${PORT}`);
-});
-
-const ingredientRoutes = require("./routes/ingredientRoutes");
+// Définition des routes
+app.use("/api/users", userRoutes);
 app.use("/api/ingredients", ingredientRoutes);
-
-const rhumRoutes = require("./routes/rhumRoutes");
+app.use("/api/recipes", recipeRoutes);
 app.use("/api/rhums", rhumRoutes);
 
-const recipeRoutes = require("./routes/recipeRoutes");
-app.use("/api/recipes", recipeRoutes);
+// Lancement du serveur
+app.listen(PORT, () => {
+    console.log(`Serveur lancé sur http://localhost:${PORT}`);
+});

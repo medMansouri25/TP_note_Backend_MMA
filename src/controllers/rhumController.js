@@ -1,39 +1,43 @@
-let rhums = [];
+const Rhum = require("../models/Rhum");
 
-exports.addRhum = (req, res) => {
-    const { name, type, region, alcohol, description } = req.body;
+//  Lister les rhums avec pagination depuis MongoDB
+exports.getRhums = async (req, res) => {
+    try {
+        const { page = 1, limit = 10 } = req.query;
+        const rhums = await Rhum.find()
+            .skip((page - 1) * limit)
+            .limit(parseInt(limit));
 
-    if (!name || !type || !region || !alcohol) {
-        return res.status(400).json({ message: "Tous les champs sont obligatoires" });
+        res.json({ total: await Rhum.countDocuments(), page: parseInt(page), rhums });
+    } catch (error) {
+        res.status(500).json({ message: "Erreur serveur", error });
     }
-
-    const newRhum = { id: rhums.length + 1, name, type, region, alcohol, description };
-    rhums.push(newRhum);
-
-    res.status(201).json({ message: "Rhum ajouté", rhum: newRhum });
 };
 
-exports.getRhums = (req, res) => {
-    const { page = 1, limit = 5 } = req.query;
-    const startIndex = (page - 1) * limit;
-    const endIndex = startIndex + parseInt(limit);
+//  Chercher un rhum par nom, type ou région
+exports.searchRhum = async (req, res) => {
+    try {
+        const { name, type, region } = req.query;
+        let filter = {};
 
-    res.json({
-        total: rhums.length,
-        page: parseInt(page),
-        limit: parseInt(limit),
-        rhums: rhums.slice(startIndex, endIndex)
-    });
+        if (name) filter.name = new RegExp(name, "i");
+        if (type) filter.type = type;
+        if (region) filter.region = region;
+
+        const rhums = await Rhum.find(filter);
+        res.json({ results: rhums });
+    } catch (error) {
+        res.status(500).json({ message: "Erreur serveur", error });
+    }
 };
 
-exports.searchRhum = (req, res) => {
-    const { name, type, region } = req.query;
-
-    let results = rhums.filter(r =>
-        (name ? r.name.toLowerCase().includes(name.toLowerCase()) : true) &&
-        (type ? r.type.toLowerCase() === type.toLowerCase() : true) &&
-        (region ? r.region.toLowerCase().includes(region.toLowerCase()) : true)
-    );
-
-    res.json({ results });
+// Route pour récupérer tous les rhums sans pagination
+exports.getAllRhums = async (req, res) => {
+    try {
+        const rhums = await Rhum.find(); // Récupère tous les rhums
+        res.json(rhums);
+    } catch (error) {
+        res.status(500).json({ message: "Erreur serveur", error });
+    }
 };
+

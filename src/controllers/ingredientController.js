@@ -1,60 +1,42 @@
-// Simule une base de données en mémoire
-let ingredients = [];
+const Ingredient = require("../models/Ingredient");
 
-exports.addIngredient = (req, res) => {
-    const { name, type, store, price } = req.body;
+exports.addIngredient = async (req, res) => {
+    try {
+        const { name, type, store, price, location } = req.body;
 
-    // Vérification des champs obligatoires
-    if (!name || !type || !store || !price) {
-        return res.status(400).json({ message: "Tous les champs sont obligatoires" });
+        const newIngredient = new Ingredient({ name, type, store, price, location });
+        await newIngredient.save();
+
+        res.status(201).json({ message: "Ingrédient ajouté", ingredient: newIngredient });
+    } catch (error) {
+        res.status(500).json({ message: "Erreur serveur", error });
     }
-
-    // Création de l'ingrédient
-    const newIngredient = {
-        id: ingredients.length + 1,
-        name,
-        type,
-        store,
-        price
-    };
-
-    ingredients.push(newIngredient);
-
-    res.status(201).json({
-        message: "Ingrédient ajouté avec succès",
-        ingredient: newIngredient
-    });
 };
 
-exports.getIngredients = (req, res) => {
-    const { page = 1, limit = 5 } = req.query;
-    const startIndex = (page - 1) * limit;
-    const endIndex = startIndex + parseInt(limit);
+exports.searchIngredient = async (req, res) => {
+    try {
+        const { name, type } = req.query;
+        let filter = {};
 
-    res.json({
-        total: ingredients.length,
-        page: parseInt(page),
-        limit: parseInt(limit),
-        ingredients: ingredients.slice(startIndex, endIndex)
-    });
+        if (name) filter.name = new RegExp(name, "i");
+        if (type) filter.type = type;
+
+        const ingredients = await Ingredient.find(filter);
+        res.json({ results: ingredients });
+    } catch (error) {
+        res.status(500).json({ message: "Erreur serveur", error });
+    }
 };
 
-exports.searchIngredient = (req, res) => {
-    const { name, type } = req.query;
+exports.listIngredients = async (req, res) => {
+    try {
+        const { page = 1, limit = 10 } = req.query;
+        const ingredients = await Ingredient.find()
+            .skip((page - 1) * limit)
+            .limit(parseInt(limit));
 
-    let filteredIngredients = ingredients;
-
-    if (name) {
-        filteredIngredients = filteredIngredients.filter(ingredient =>
-            ingredient.name.toLowerCase().includes(name.toLowerCase())
-        );
+        res.json({ total: await Ingredient.countDocuments(), page: parseInt(page), ingredients });
+    } catch (error) {
+        res.status(500).json({ message: "Erreur serveur", error });
     }
-
-    if (type) {
-        filteredIngredients = filteredIngredients.filter(ingredient =>
-            ingredient.type.toLowerCase() === type.toLowerCase()
-        );
-    }
-
-    res.json({ results: filteredIngredients });
 };
