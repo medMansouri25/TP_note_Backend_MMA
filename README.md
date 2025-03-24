@@ -14,7 +14,19 @@ Avant de commencer, assure-toi d’avoir installé Node.js et npm (inclus dans N
 
 -Installe les modules nécessaires à ton projet à l'aide de npm :
 
--->npm install express mongoose bcrypt jsonwebtoken dotenv cors body-parser
+-->npm install express 
+
+-->npm install mongoose
+
+-->npm install bcrypt
+
+-->npm installjsonwebtoken
+
+-->npm install dotenv
+
+-->npm install cors
+
+-->npm install body-parser
 
 🛠️ Configuration et Lancement de MongoDB 
 
