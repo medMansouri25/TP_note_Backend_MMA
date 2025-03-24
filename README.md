@@ -33,7 +33,9 @@ MONGO_URI=mongodb+srv://ensimUser:UElxrJiKHF8ipBCn@rhums. aeoo1.mongodb.net /rhu
 
 -Crée un fichier .env à la racine du projet et ajoute les variables suivantes :
 MONGO_URI=mongodb+srv://ensimUser:UElxrJiKHF8ipBCn@rhums. aeoo1.mongodb.net /rhums
+
 JWT_SECRET=SecretKey
+
 PORT=3003
 
 🚦 Lancement du serveur Node.js
