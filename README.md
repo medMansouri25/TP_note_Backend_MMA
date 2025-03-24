@@ -46,22 +46,22 @@ http://localhost:3003
 📦 À quoi servent les dépendances principales utilisées ?
 
 express :
--Framework Node.js pour créer ton serveur HTTP facilement, gérer les routes et les requêtes.
+Framework Node.js pour créer ton serveur HTTP facilement, gérer les routes et les requêtes.
 
 mongoose :
--Bibliothèque pour connecter Node.js avec MongoDB, définir des modèles de données (schemas) et simplifier les opérations CRUD.
+Bibliothèque pour connecter Node.js avec MongoDB, définir des modèles de données (schemas) et simplifier les opérations CRUD.
 
 jsonwebtoken (JWT) :
--Paquet qui permet de créer et gérer les JSON Web Tokens (JWT) pour authentifier et sécuriser les API.
+Paquet qui permet de créer et gérer les JSON Web Tokens (JWT) pour authentifier et sécuriser les API.
 
 bcrypt :
--Pour hasher (chiffrer) de manière sécurisée les mots de passe avant de les sauvegarder dans la base MongoDB.
+Pour hasher (chiffrer) de manière sécurisée les mots de passe avant de les sauvegarder dans la base MongoDB.
 
 dotenv :
--Pour gérer facilement des variables d'environnement (comme des clés secrètes, les informations sensibles, les identifiants de connexion à MongoDB, etc.).
+Pour gérer facilement des variables d'environnement (comme des clés secrètes, les informations sensibles, les identifiants de connexion à MongoDB, etc.).
 
 mongoose :
--Outil qui permet d’interagir simplement avec MongoDB, notamment à travers les schémas et les modèles.
+Outil qui permet d’interagir simplement avec MongoDB, notamment à travers les schémas et les modèles.
 
 ✅ Fonctionnalités Implémentées
 
