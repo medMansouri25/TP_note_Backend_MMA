@@ -27,7 +27,7 @@ Avant de commencer, assure-toi d’avoir installé Node.js et npm (inclus dans N
 
 🟢En cas d'utilisation de base de donnée distante:
 
-MONGO_URI=mongodb+srv://ensimUser:UElxrJiKHF8ipBCn@rhums.aeoo1.mongodb.net/rhums
+MONGO_URI=mongodb+srv://ensimUser:UElxrJiKHF8ipBCn@rhums. aeoo1.mongodb.net /rhums
 
 ⚙️ Variables d'environnement (.env)
 
