@@ -21,7 +21,9 @@ Avant de commencer, assure-toi d’avoir installé Node.js et npm (inclus dans N
 🟢En cas d'utilisation en local
 
 -Télécharge et installe MongoDB depuis mongodb.com.
+
 -Crée un dossier pour stocker ta base de données MongoDB (par exemple : data).
+
 -Démarre MongoDB en indiquant le chemin vers le dossier créé :
 -->mongod.exe --dbpath .\data
 
@@ -42,6 +44,7 @@ PORT=3003
 
 Pour démarrer ton serveur backend, utilise la commande suivante dans ton terminal :
 -->node ./src/serveur.js
+
 Ton serveur devrait alors être accessible sur :
 http://localhost:3003
 
