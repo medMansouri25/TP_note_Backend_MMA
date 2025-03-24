@@ -1,0 +1,408 @@
+{
+	"info": {
+		"_postman_id": "bc83a0e2-3122-493c-b4dd-0056a14bf1c1",
+		"name": "test complet TP NOTE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43149648",
+		"_collection_link": "https://solar-space-379046.postman.co/workspace/Team-Workspace~5522430b-ca10-4b22-82ec-6b2073880e95/collection/43149648-bc83a0e2-3122-493c-b4dd-0056a14bf1c1?action=share&source=collection_link&creator=43149648"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3003/api/users/register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Sarah Dupont\",\r\n  \"address\": \"34 Avenue des Champs, Paris\",\r\n  \"email\": \"sarah.dupont@gmail.com\",\r\n  \"password\": \"sarah1234\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/users/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"sarah.dupont@gmail.com\",\r\n  \"password\": \"sarah1234\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/ingredients/add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2RjOTRiOGIxMzVlZTY3NmQ4NjZiYzYiLCJpYXQiOjE3NDI1MDkyODQsImV4cCI6MTc0MzExNDA4NH0.GiKWgl-yeI_T3W75qxxlD7NYZNW_Yj1aMfFB77loNgI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Cannelle\",\r\n  \"type\": \"épices\",\r\n  \"store\": \"Épices du Monde, 45 rue de Rivoli, Paris\",\r\n  \"price\": 3.50,\r\n  \"location\": {\r\n    \"lat\": 48.8566,\r\n    \"lon\": 2.3522\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/ingredients/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"ingredients",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/ingredients/search?name=Cannelle",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2RjOTRiOGIxMzVlZTY3NmQ4NjZiYzYiLCJpYXQiOjE3NDI1MDkyODQsImV4cCI6MTc0MzExNDA4NH0.GiKWgl-yeI_T3W75qxxlD7NYZNW_Yj1aMfFB77loNgI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/ingredients/search?name=Cannelle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"ingredients",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Cannelle"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/ingredients/list?page=1&limit=4",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2RjOTRiOGIxMzVlZTY3NmQ4NjZiYzYiLCJpYXQiOjE3NDI1MDkyODQsImV4cCI6MTc0MzExNDA4NH0.GiKWgl-yeI_T3W75qxxlD7NYZNW_Yj1aMfFB77loNgI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/ingredients/list?page=1&limit=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"ingredients",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/rhums/list?page=1&limit=5",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2RjOTRiOGIxMzVlZTY3NmQ4NjZiYzYiLCJpYXQiOjE3NDI1MDkyODQsImV4cCI6MTc0MzExNDA4NH0.GiKWgl-yeI_T3W75qxxlD7NYZNW_Yj1aMfFB77loNgI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/rhums/list?page=1&limit=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"rhums",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/rhums/search?name=Rhum Blanc Agricole",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2RjOTRiOGIxMzVlZTY3NmQ4NjZiYzYiLCJpYXQiOjE3NDI1MDkyODQsImV4cCI6MTc0MzExNDA4NH0.GiKWgl-yeI_T3W75qxxlD7NYZNW_Yj1aMfFB77loNgI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/rhums/search?name=Rhum Blanc Agricole",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"rhums",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Rhum Blanc Agricole"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/recipes/add",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2RjOTRiOGIxMzVlZTY3NmQ4NjZiYzYiLCJpYXQiOjE3NDI1MDkyODQsImV4cCI6MTc0MzExNDA4NH0.GiKWgl-yeI_T3W75qxxlD7NYZNW_Yj1aMfFB77loNgI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"67d93a8f53a66ba630e5deaa\",\r\n  \"name\": \"Rhum arrangé Ananas-Gingembre\",\r\n  \"rhum\": \"676d0e793c9a1a9bdc1a9b84\",\r\n  \"ingredients\": [\"67d9e67be10bbdb62b31fac8\", \"67d9e8d7e10bbdb62b31fad8\"],\r\n  \"instructions\": \"Mélanger l'ananas Victoria avec le gingembre frais coupé, laisser macérer 4 semaines.\",\r\n  \"isPublic\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/recipes/public?page=1&limit=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"recipes",
+						"public"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/recipes/public?page=1&limit=5",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2RjOTRiOGIxMzVlZTY3NmQ4NjZiYzYiLCJpYXQiOjE3NDI1MDkyODQsImV4cCI6MTc0MzExNDA4NH0.GiKWgl-yeI_T3W75qxxlD7NYZNW_Yj1aMfFB77loNgI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Rhum arrangé Ananas, Mangue et Gingembre\",\r\n  \"ingredients\": [\r\n    \"67d9e67be10bbdb62b31fac8\",\r\n    \"67d9e8d7e10bbdb62b31fad8\"\r\n  ],\r\n  \"instructions\": \"Ajouter du gingembre frais à la recette initiale, mélanger puis laisser macérer 3 mois.\",\r\n  \"isPublic\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/recipes/update/67d9f503bb9aa77ebd3a4474",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"recipes",
+						"update",
+						"67d9f503bb9aa77ebd3a4474"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/recipes/list?page=1&limit=5",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2RjOTRiOGIxMzVlZTY3NmQ4NjZiYzYiLCJpYXQiOjE3NDI1MDkyODQsImV4cCI6MTc0MzExNDA4NH0.GiKWgl-yeI_T3W75qxxlD7NYZNW_Yj1aMfFB77loNgI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/recipes/list?page=1&limit=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"recipes",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
