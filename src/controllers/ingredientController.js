@@ -1,5 +1,5 @@
 const Ingredient = require("../models/Ingredient");
-
+// Ajouter un ingrédient dans la base de données
 exports.addIngredient = async (req, res) => {
     try {
         const { name, type, store, price, location } = req.body;
@@ -12,7 +12,7 @@ exports.addIngredient = async (req, res) => {
         res.status(500).json({ message: "Erreur serveur", error });
     }
 };
-
+// Rechercher un ingrédient par nom ou type
 exports.searchIngredient = async (req, res) => {
     try {
         const { name, type } = req.query;
@@ -27,7 +27,7 @@ exports.searchIngredient = async (req, res) => {
         res.status(500).json({ message: "Erreur serveur", error });
     }
 };
-
+//  Lister les ingrédients avec pagination depuis MongoDB
 exports.listIngredients = async (req, res) => {
     try {
         const { page = 1, limit = 10 } = req.query;

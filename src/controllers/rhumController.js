@@ -31,7 +31,7 @@ exports.searchRhum = async (req, res) => {
     }
 };
 
-// Route pour récupérer tous les rhums sans pagination
+// Route pour récupérer tous les rhums sans pagination (facultatif pas demandée juste pour les tests)
 exports.getAllRhums = async (req, res) => {
     try {
         const rhums = await Rhum.find(); // Récupère tous les rhums

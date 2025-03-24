@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 
+// Enregistrement d'un utilisateur
 exports.register = async (req, res) => {
     try {
         const { name, email, password, address } = req.body;
@@ -17,7 +18,7 @@ exports.register = async (req, res) => {
         res.status(500).json({ message: "Erreur serveur", error });
     }
 };
-
+// Connexion d'un utilisateur
 exports.login = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -33,7 +34,7 @@ exports.login = async (req, res) => {
         res.status(500).json({ message: "Erreur serveur", error });
     }
 };
-
+// Récupérer tous les utilisateurs
 exports.getUsers = async (req, res) => {
   try {
     const users = await User.find().select("-password"); // Exclut le mot de passe

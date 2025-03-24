@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// Création du schéma de données pour les rhums
 const rhumSchema = new mongoose.Schema({
     name: { type: String, required: true },
     rxid_number: { type: String, unique: true },
