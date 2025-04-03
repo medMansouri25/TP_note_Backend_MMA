@@ -41,16 +41,11 @@ Avant de commencer, assure-toi d’avoir installé Node.js et npm (inclus dans N
 
 🟢En cas d'utilisation de base de donnée distante:
 
-MONGO_URI=mongodb+srv://ensimUser:UElxrJiKHF8ipBCn@rhums. aeoo1.mongodb.net /rhums
+et vous pouvez rentrez URL de votre base de données MONGO_URI
 
 ⚙️ Variables d'environnement (.env)
 
--Crée un fichier .env à la racine du projet et ajoute les variables suivantes :
-MONGO_URI=mongodb+srv://ensimUser:UElxrJiKHF8ipBCn@rhums. aeoo1.mongodb.net /rhums
-
-JWT_SECRET=SecretKey
-
-PORT=3003
+-Crée un fichier .env à la racine du projet .
 
 🚦 Lancement du serveur Node.js
 
