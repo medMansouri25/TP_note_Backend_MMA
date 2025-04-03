@@ -1,13 +1,9 @@
-const Ingredient = require("../models/Ingredient");
+const ingredientService = require("../services/ingredientService");
 
 exports.addIngredient = async (req, res) => {
     try {
-        const { name, type, store, price, location } = req.body;
-
-        const newIngredient = new Ingredient({ name, type, store, price, location });
-        await newIngredient.save();
-
-        res.status(201).json({ message: "Ingrédient ajouté", ingredient: newIngredient });
+        const ingredient = await ingredientService.addIngredient(req.body);
+        res.status(201).json({ message: "Ingrédient ajouté", ingredient });
     } catch (error) {
         res.status(500).json({ message: "Erreur serveur", error });
     }
@@ -15,13 +11,7 @@ exports.addIngredient = async (req, res) => {
 
 exports.searchIngredient = async (req, res) => {
     try {
-        const { name, type } = req.query;
-        let filter = {};
-
-        if (name) filter.name = new RegExp(name, "i");
-        if (type) filter.type = type;
-
-        const ingredients = await Ingredient.find(filter);
+        const ingredients = await ingredientService.searchIngredient(req.query);
         res.json({ results: ingredients });
     } catch (error) {
         res.status(500).json({ message: "Erreur serveur", error });
@@ -30,12 +20,8 @@ exports.searchIngredient = async (req, res) => {
 
 exports.listIngredients = async (req, res) => {
     try {
-        const { page = 1, limit = 10 } = req.query;
-        const ingredients = await Ingredient.find()
-            .skip((page - 1) * limit)
-            .limit(parseInt(limit));
-
-        res.json({ total: await Ingredient.countDocuments(), page: parseInt(page), ingredients });
+        const { ingredients, total, page } = await ingredientService.listIngredients(req.query.page, req.query.limit);
+        res.json({ total, page, ingredients });
     } catch (error) {
         res.status(500).json({ message: "Erreur serveur", error });
     }
