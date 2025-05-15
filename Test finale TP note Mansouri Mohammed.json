@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "c30cc1b1-31b4-4a88-beb4-e9ba4144db0b",
+		"name": "Test finale TP note Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43149648",
+		"_collection_link": "https://solar-space-379046.postman.co/workspace/Team-Workspace~5522430b-ca10-4b22-82ec-6b2073880e95/collection/43149648-c30cc1b1-31b4-4a88-beb4-e9ba4144db0b?action=share&source=collection_link&creator=43149648"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3003/api/users/register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Jean Dupont\",\r\n  \"email\": \"jean.dupont@test.com\",\r\n  \"password\": \"motdepasse\",\r\n  \"address\": \"123 Rue du Rhum\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/users/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"jean.dupont@test.com\",\r\n  \"password\": \"motdepasse\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/ingredients/add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VkOTBhZDUyMzkwNzM1ZDQ5NzA2OTMiLCJpYXQiOjE3NDM2MjIzNjAsImV4cCI6MTc0NDIyNzE2MH0.2WZInM9DW4HujCQu-qOgcwxELV3uaoy4IbA1fy7Az8E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Citron Vert\",\r\n  \"type\": \"fruits\",\r\n  \"store\": \"Marché local\",\r\n  \"price\": 1.2,\r\n  \"location\": { \"lat\": 48.8566, \"lon\": 2.3522 }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/ingredients/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"ingredients",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/ingredients/search?name=citron",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VkOTBhZDUyMzkwNzM1ZDQ5NzA2OTMiLCJpYXQiOjE3NDM2MjIzNjAsImV4cCI6MTc0NDIyNzE2MH0.2WZInM9DW4HujCQu-qOgcwxELV3uaoy4IbA1fy7Az8E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/ingredients/search?name=citron",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"ingredients",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "citron"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/ingredients/list?page=1&limit=5\n\n",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VkOTBhZDUyMzkwNzM1ZDQ5NzA2OTMiLCJpYXQiOjE3NDM2MjIzNjAsImV4cCI6MTc0NDIyNzE2MH0.2WZInM9DW4HujCQu-qOgcwxELV3uaoy4IbA1fy7Az8E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/ingredients/list?page=1&limit=5\n\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"ingredients",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "5\n\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/rhums/list?page=1&limit=10",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VkOTBhZDUyMzkwNzM1ZDQ5NzA2OTMiLCJpYXQiOjE3NDM2MjIzNjAsImV4cCI6MTc0NDIyNzE2MH0.2WZInM9DW4HujCQu-qOgcwxELV3uaoy4IbA1fy7Az8E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/rhums/list?page=1&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"rhums",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/rhums/search?name=Doorly",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VkOTBhZDUyMzkwNzM1ZDQ5NzA2OTMiLCJpYXQiOjE3NDM2MjIzNjAsImV4cCI6MTc0NDIyNzE2MH0.2WZInM9DW4HujCQu-qOgcwxELV3uaoy4IbA1fy7Az8E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/rhums/search?name=Doorly",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"rhums",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Doorly"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/recipes/add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VkOTBhZDUyMzkwNzM1ZDQ5NzA2OTMiLCJpYXQiOjE3NDM2MjIzNjAsImV4cCI6MTc0NDIyNzE2MH0.2WZInM9DW4HujCQu-qOgcwxELV3uaoy4IbA1fy7Az8E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"664b7d1234567890abcde123\",\r\n  \"name\": \"Ti' Punch\",\r\n  \"rhum\": \"664b7d8765432100defabc12\",\r\n  \"ingredients\": [\"664b7d9999999999aaaabbbb\"],\r\n  \"instructions\": \"Mélanger le rhum, le citron vert et le sucre de canne.\",\r\n  \"isPublic\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/recipes/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"recipes",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/recipes/list?page=1&limit=4",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VkOTBhZDUyMzkwNzM1ZDQ5NzA2OTMiLCJpYXQiOjE3NDM2MjIzNjAsImV4cCI6MTc0NDIyNzE2MH0.2WZInM9DW4HujCQu-qOgcwxELV3uaoy4IbA1fy7Az8E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/recipes/list?page=1&limit=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"recipes",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/recipes/update/67ed91ee52390735d49706a0",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VkOTBhZDUyMzkwNzM1ZDQ5NzA2OTMiLCJpYXQiOjE3NDM2MjIzNjAsImV4cCI6MTc0NDIyNzE2MH0.2WZInM9DW4HujCQu-qOgcwxELV3uaoy4IbA1fy7Az8E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"664b7d1234567890abcde123\",\r\n  \"name\": \"Ti' Punch revisité avec gingembre et citron vert\",\r\n  \"rhum\": \"664b7d8765432100defabc12\",\r\n  \"ingredients\": [\r\n    \"67d9e67be10bbdb62b31fac8\",\r\n    \"67d9e8d7e10bbdb62b31fad8\"\r\n  ],\r\n  \"instructions\": \"Ajoutez du gingembre, pressez un citron vert, mélangez avec le rhum et laissez macérer 2 semaines.\",\r\n  \"isPublic\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/recipes/update/67ed91ee52390735d49706a0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"recipes",
+						"update",
+						"67ed91ee52390735d49706a0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/recipes/public",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VkOTBhZDUyMzkwNzM1ZDQ5NzA2OTMiLCJpYXQiOjE3NDM2MjIzNjAsImV4cCI6MTc0NDIyNzE2MH0.2WZInM9DW4HujCQu-qOgcwxELV3uaoy4IbA1fy7Az8E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/recipes/public",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"recipes",
+						"public"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

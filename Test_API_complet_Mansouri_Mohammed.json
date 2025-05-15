@@ -1,0 +1,499 @@
+{
+	"info": {
+		"_postman_id": "92558954-a57b-46fc-b2b0-954ca4cf8927",
+		"name": "Test complet 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43149648",
+		"_collection_link": "https://solar-space-379046.postman.co/workspace/Team-Workspace~5522430b-ca10-4b22-82ec-6b2073880e95/collection/43149648-92558954-a57b-46fc-b2b0-954ca4cf8927?action=share&source=collection_link&creator=43149648"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3003/api/users/register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Mansouri\",\r\n  \"email\": \"med2004@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"address\": \"12 , Paris\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/users/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"med2004@gmail.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/ingredients/add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q5ZTgzYmUxMGJiZGI2MmIzMWZhZDQiLCJpYXQiOjE3NDIzMzQwNjQsImV4cCI6MTc0MjkzODg2NH0.0dz8F10pw3LgvZle0A0i0IQrDQA8MELpC0Yx1ZbBNDU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Gingembre frais\",\r\n  \"type\": \"épices\",\r\n  \"store\": \"Marché Bio, Paris\",\r\n  \"price\": 3.75,\r\n  \"location\": {\r\n    \"lat\": 48.8566,\r\n    \"lon\": 2.3522\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/ingredients/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"ingredients",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/ingredients/add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q5ZTgzYmUxMGJiZGI2MmIzMWZhZDQiLCJpYXQiOjE3NDIzMzQwNjQsImV4cCI6MTc0MjkzODg2NH0.0dz8F10pw3LgvZle0A0i0IQrDQA8MELpC0Yx1ZbBNDU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Sucre de canne roux\",\r\n  \"type\": \"sucres\",\r\n  \"store\": \"Supermarché Carrefour, Toulouse\",\r\n  \"price\": 3.20,\r\n  \"location\": {\r\n    \"lat\": 43.6047,\r\n    \"lon\": 1.4442\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/ingredients/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"ingredients",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/ingredients/search?name=Vanille",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q5ZTgzYmUxMGJiZGI2MmIzMWZhZDQiLCJpYXQiOjE3NDIzMzQwNjQsImV4cCI6MTc0MjkzODg2NH0.0dz8F10pw3LgvZle0A0i0IQrDQA8MELpC0Yx1ZbBNDU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/ingredients/search?name=Vanille",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"ingredients",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Vanille"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/rhums/list?page=5&limit=10",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q5ZTgzYmUxMGJiZGI2MmIzMWZhZDQiLCJpYXQiOjE3NDIzMzQwNjQsImV4cCI6MTc0MjkzODg2NH0.0dz8F10pw3LgvZle0A0i0IQrDQA8MELpC0Yx1ZbBNDU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"65f9a3c3d6f3e3a58b25d2b4\",\r\n  \"name\": \"Rhum arrangé Vanille\",\r\n  \"rhum\": \"65f9a3c3d6f3e3a58b25d2b9\",\r\n  \"ingredients\": [\"65f9a3c3d6f3e3a58b25d2c0\"],\r\n  \"instructions\": \"Laisser macérer 2 mois.\",\r\n  \"isPublic\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/rhums/list?page=5&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"rhums",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "5"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/rhums/search?name=Don Papa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q5ZTgzYmUxMGJiZGI2MmIzMWZhZDQiLCJpYXQiOjE3NDIzMzQwNjQsImV4cCI6MTc0MjkzODg2NH0.0dz8F10pw3LgvZle0A0i0IQrDQA8MELpC0Yx1ZbBNDU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"65f9a3c3d6f3e3a58b25d2b4\",\r\n  \"name\": \"Rhum arrangé Vanille\",\r\n  \"rhum\": \"65f9a3c3d6f3e3a58b25d2b9\",\r\n  \"ingredients\": [\"65f9a3c3d6f3e3a58b25d2c0\"],\r\n  \"instructions\": \"Laisser macérer 2 mois.\",\r\n  \"isPublic\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/rhums/search?name=Don Papa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"rhums",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Don Papa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/recipes/add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q5ZTgzYmUxMGJiZGI2MmIzMWZhZDQiLCJpYXQiOjE3NDIzMzQwNjQsImV4cCI6MTc0MjkzODg2NH0.0dz8F10pw3LgvZle0A0i0IQrDQA8MELpC0Yx1ZbBNDU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"65f9a3c3d6f3e3a58b25d2b1\",\r\n  \"name\": \"Rhum arrangé Vanille\",\r\n  \"rhum\": \"65f9a3c3d6f3e3a58b25d2b9\",\r\n  \"ingredients\": [\"65f9a3c3d6f3e3a58b25d2c0\"],\r\n  \"instructions\": \"Laisser macérer 2 mois.\",\r\n  \"isPublic\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/recipes/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"recipes",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/recipes/list?page=1&limit=10",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q5ZTgzYmUxMGJiZGI2MmIzMWZhZDQiLCJpYXQiOjE3NDIzMzQwNjQsImV4cCI6MTc0MjkzODg2NH0.0dz8F10pw3LgvZle0A0i0IQrDQA8MELpC0Yx1ZbBNDU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/recipes/list?page=1&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"recipes",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/recipes/public?page=1&limit=10",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q5ZTgzYmUxMGJiZGI2MmIzMWZhZDQiLCJpYXQiOjE3NDIzMzQwNjQsImV4cCI6MTc0MjkzODg2NH0.0dz8F10pw3LgvZle0A0i0IQrDQA8MELpC0Yx1ZbBNDU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/recipes/public?page=1&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"recipes",
+						"public"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/recipes/add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q5ZTgzYmUxMGJiZGI2MmIzMWZhZDQiLCJpYXQiOjE3NDIzMzcwNTMsImV4cCI6MTc0Mjk0MTg1M30.Tsm9tGXNa2tcOz3WeE8wka8fKP31dn6Vs3Ygd7NpRmE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"65f9a3c3d6f3e3a58b25d2b1\",\r\n    \"name\": \"Rhum arrangé Ananas\",\r\n    \"rhum\": \"65f9a3c3d6f3e3a58b25d2b9\",\r\n    \"ingredients\": [\"65f9a3c3d6f3e3a58b25d2c0\"],\r\n    \"instructions\": \"Mélanger avec de l'ananas frais et laisser macérer 1 mois.\",\r\n    \"isPublic\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/recipes/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"recipes",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3003/api/recipes/update/67d9f503bb9aa77ebd3a4474",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Q5ZTgzYmUxMGJiZGI2MmIzMWZhZDQiLCJpYXQiOjE3NDIzMzcwNTMsImV4cCI6MTc0Mjk0MTg1M30.Tsm9tGXNa2tcOz3WeE8wka8fKP31dn6Vs3Ygd7NpRmE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Rhum arrangé Ananas et Mangue\",\r\n    \"ingredients\": [\"65f9a3c3d6f3e3a58b25d2c0\", \"65f9a3c3d6f3e3a58b25d2d5\"],\r\n    \"instructions\": \"Ajouter de la mangue fraîche et laisser macérer 2 mois.\",\r\n    \"isPublic\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/recipes/update/67d9f503bb9aa77ebd3a4474",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"recipes",
+						"update",
+						"67d9f503bb9aa77ebd3a4474"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
