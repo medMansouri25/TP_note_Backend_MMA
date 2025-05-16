@@ -16,6 +16,7 @@ const PORT = 3003;
 // Middleware
 app.use(express.json());
 app.use(cors());
+app.use(helmet());
 
 // Connexion à MongoDB
 mongoose.connect(process.env.MONGO_URI, {
