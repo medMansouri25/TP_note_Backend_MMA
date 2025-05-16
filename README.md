@@ -50,7 +50,10 @@ et vous pouvez rentrez URL de votre base de données MONGO_URI
 🚦 Lancement du serveur Node.js
 
 Pour démarrer ton serveur backend, utilise la commande suivante dans ton terminal :
--->node ./src/serveur.js
+-->npm start
+
+Pour redémarrage automatige aprés une modification:
+-->npm run dev
 
 Ton serveur devrait alors être accessible sur :
 http://localhost:3003
