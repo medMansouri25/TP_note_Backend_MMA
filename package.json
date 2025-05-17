@@ -15,7 +15,7 @@
     "url": "git+https://github.com/medMansouri25/TP_note_Backend_MMA.git"
   },
   "keywords": [
-    "Mansouri25.."
+    "nodejs", "express", "mongodb", "api", "backend", "tp"
   ],
   "bugs": {
     "url": "https://github.com/medMansouri25/TP_note_Backend_MMA/issues"
